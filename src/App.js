@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import logo from "./strath_main.jpeg"
+import logo from "./strath_logo.png"
+import logo2 from "./esa_grey.png"
 import "./App.css"
 /*import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';*/
 
@@ -56,6 +57,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+            <img src={logo2} className="App-logo" alt="logo" />
           <p>
             SCARLET
           </p>
