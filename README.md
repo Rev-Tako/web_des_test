@@ -36,6 +36,12 @@ yarn # install all dependencies
 ntl dev ## nice shortcut for `netlify dev`, starts up create-react-app AND a local Node.js server for your Netlify functions
 ```
 
+```bash
+cd web_des_test
+export NODE_OPTIONS=--openssl-legacy-provider
+ntl dev
+```
+
 This fires up [Netlify Dev](https://www.netlify.com/docs/cli/?utm_source=github&utm_medium=swyx-CRAL&utm_campaign=devex#netlify-dev-beta), which:
 
 - Detects that you are running a `create-react-app` project and runs the npm script that contains `react-scripts start`, which in this project is the `start` script
