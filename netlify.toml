@@ -1,4 +1,4 @@
 [build]
-  command = "yarn" # the command you run to build this file
+  command = "yarn" # the command you run to build this file (was yarn build)
   functions = "built-lambda" # netlify-lambda builds to this folder AND Netlify reads functions from here
-  publish = "build" # create-react-app builds to this folder, Netlify should serve all these files statically
+  publish = "src" # create-react-app builds to this folder, Netlify should serve all these files statically (was build)
