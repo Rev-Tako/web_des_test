@@ -14,7 +14,7 @@ class LambdaDemo extends Component {
       this.setState({value: event.target.value});
     }
     handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
+      alert('You entered the text: ' + this.state.value);
       event.preventDefault();
     }
 
@@ -40,7 +40,7 @@ class LambdaDemo extends Component {
           <br />
           <form onSubmit={this.handleSubmit}>
               <label>
-                  Name:
+                  Input:
                   <input type="text" value={this.state.value} onChange={this.handleChange} />
               </label>
               <input type="submit" value="Submit" />
@@ -57,7 +57,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            blah blah blah bonk boop
+            SCARLET
           </p>
           <LambdaDemo />
         </header>
