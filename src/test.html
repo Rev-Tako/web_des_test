@@ -1,0 +1,9 @@
+
+<div class="App-scroller">
+  <pre id="arrPrint"></pre>
+  <script>
+    let arr = ["Jack", "John", "James", "Simon",];
+    document.getElementById("arrPrint").innerHTML = JSON.stringify(arr, null, 2).replace(/]/g,'').replace('[','').replace(/,/g,'').replace(/"/g,'');
+  </script>
+</div>
+

@@ -1,0 +1,3 @@
+<button onClick={this.handleClick("hello")}>{loading ? "Binging..." : "Say WORDS"}</button>
+
+<img src={logo} className="App-logo2" alt="logo" /><img src={logo2} className="App-logo2" alt="logo" />
