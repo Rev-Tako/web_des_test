@@ -24,6 +24,9 @@ class SCARLET_frontend extends Component {
               alert('close this alert or press enter to download history as ' + outlink.name +'.txt  ' +
                   'to restart just reload the page, please email me with any output files.')
               const textToBLOB = new Blob([outlink.data], { type: "text/plain" });
+              console.log('output prior to processing: ' + this.state.output)
+              console.log('output text: ' + outlink.data)
+              console.log('output blob: ' + textToBLOB)
               let newLink = document.createElement("a");
               newLink.download = outlink.name;
 
