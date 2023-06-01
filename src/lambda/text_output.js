@@ -1,3 +1,4 @@
+import {Blob} from 'buffer';
 export async function handler(event, context){
     // Get the data from each element on the form.
     if (!(event.body.replace(/"/g, '').length===0)) {
