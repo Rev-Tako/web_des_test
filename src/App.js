@@ -1,28 +1,53 @@
 import React, { Component } from "react"
 import "./App.css"
 
+
 class SCARLET_frontend extends Component {
   constructor(props) {
     super(props)
-    this.state = { loading: false, loading2: false, msg: null, msg2: null, value: '', previous: [], output: null};
+    this.state = {saved: false, loading: false, saving: false, msg: null, msg2: null, value: '', previous: [], output: null};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  clearClick(){
+      alert('clear');
+  }
   handleClick = api=> e => {
       e.preventDefault();
-      this.setState({loading2: true});
+      this.setState({saving: true, saved: false});
       fetch("/.netlify/functions/" + api, {
           method: 'POST',
           body: JSON.stringify(this.state.output)})
           .then(response => response.json())
-          .then(json => this.setState({loading2: false}))}
+          .then(outlink => {
+              alert('close this alert or press enter to download history as ' + outlink.name +'.txt  ' +
+                  'to restart just reload the page, please email me with any output files.')
+              const textToBLOB = new Blob([outlink.data], { type: "text/plain" });
+              let newLink = document.createElement("a");
+              newLink.download = outlink.name;
+
+              if (window.webkitURL != null) {
+                  newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+              } else {
+                  newLink.href = window.URL.createObjectURL(textToBLOB);
+                  newLink.style.display = "none";
+                  document.body.appendChild(newLink);
+              }
+
+              newLink.click();
+              this.setState({saving: false, saved: true, loading: false})
+          })
+
+
+  }
 
   handleChange(event) {
-      this.setState({value: event.target.value, loading: false});
+      this.setState({saved: false, value: event.target.value, loading: false});
     }
     handleSubmit = api=> e => {
       e.preventDefault();
-      this.setState({loading: true});
+      this.setState({saved: false, loading: true});
       fetch("/.netlify/functions/" + api, {
           method: 'POST',
           body: JSON.stringify(this.state.value)
@@ -30,7 +55,7 @@ class SCARLET_frontend extends Component {
         .then(response => response.json())
         .then(json => {
             if (this.state.previous.length===0){
-                console.log('message length = ' + json.msg.length)
+                //console.log('message length = ' + json.msg.length)
                 if (!(json.msg.length===0)) {
                     this.setState(prevState => ({
                         loading: false, msg: json.msg, previous: [...prevState.previous, json.msg], output:
@@ -57,17 +82,18 @@ class SCARLET_frontend extends Component {
                     })
                 }
             }
+            this.setState({saved: false, loading: false, value: ''})
         })
-        this.setState({loading: false, value: ''})
+
     }
 
   render() {
-    const {msg, previous, output, loading, loading2 } = this.state
+    const {msg, previous, output, loading, saving, saved } = this.state
 
     return (
       <div>
-        <div className="App-scroller">
-            <span dangerouslySetInnerHTML={{ __html: output }}/>
+        <div className="App-scroller" id="scroller">
+            <span id="inner" dangerouslySetInnerHTML={{ __html: output }}/>
         </div>
         <br />
         <form className="App-form" onSubmit={this.handleSubmit("text_input")}>
@@ -79,7 +105,7 @@ class SCARLET_frontend extends Component {
         <br />
 
           <div className="App-button-holder">
-            <button className="App-button2" onClick={this.handleClick("text_output")}>{loading2 ? "Saving conversation..." : "Save"}</button>
+            <button className="App-button2" type="submit" onClick={this.handleClick("text_output")}>{saving ? "Saving conversation...": saved ? "Saved" : "Download history"}</button>
           </div>
       </div>
     )
