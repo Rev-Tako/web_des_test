@@ -49,9 +49,9 @@ class SCARLET_frontend extends Component {
             method: 'GET'
             }
         )
-            .then(response => response.text())
+            .then(response => response.json())
             .then(output => {
-                console.log(output);
+                console.log(output.body);
                 this.setState({loading: false, failure: false});
             })}
 
