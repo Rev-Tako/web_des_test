@@ -6,7 +6,10 @@ export async function handler(event, context) {
   try {
     if (!(event.body.replace(/"/g, '').length===0)) {
       const response = await axios.get("https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/");
-      const data = response.data.SCARLET_output;
+      let data = response.data.msg
+      if (!(response.data.SCARLET_output===0)) {
+        data = response.data.SCARLET_output;
+      }
       const input = event.body.replace(/"/g, '');
       return {
         statusCode: response.status,
