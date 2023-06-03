@@ -5,7 +5,7 @@ import "./App.css"
 class SCARLET_frontend extends Component {
   constructor(props) {
     super(props)
-    this.state = {saved: false, loading: false, saving: false, msg: null, msg2: null, value: '', previous: [], output: null};
+    this.state = {saved: false, failure: false, loading: false, saving: false, msg: null, msg2: null, value: '', previous: [], output: null};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,9 +24,6 @@ class SCARLET_frontend extends Component {
               alert('close this alert or press enter to download history as ' + outlink.name +'.txt  ' +
                   'to restart just reload the page, please email me with any output files.')
               const textToBLOB = new Blob([outlink.data], { type: "text/plain" });
-              console.log('output prior to processing: ' + this.state.output)
-              console.log('output text: ' + outlink.data)
-              console.log('output blob: ' + textToBLOB)
               let newLink = document.createElement("a");
               newLink.download = outlink.name;
 
@@ -45,6 +42,19 @@ class SCARLET_frontend extends Component {
 
   }
 
+    handleClick2 = api=> e => {
+        e.preventDefault();
+        this.setState({loading: true, failure: false});
+        fetch("/.netlify/functions/" + api, {
+            method: 'GET'
+            }
+        )
+            .then(response => response.text())
+            .then(output => {
+                console.log(output);
+                this.setState({loading: false, failure: false});
+            })}
+
   handleChange(event) {
       this.setState({saved: false, value: event.target.value, loading: false});
     }
@@ -58,7 +68,6 @@ class SCARLET_frontend extends Component {
         .then(response => response.json())
         .then(json => {
             if (this.state.previous.length===0){
-                //console.log('message length = ' + json.msg.length)
                 if (!(json.msg.length===0)) {
                     this.setState(prevState => ({
                         loading: false, msg: json.msg, previous: [...prevState.previous, json.msg], output:
@@ -91,7 +100,7 @@ class SCARLET_frontend extends Component {
     }
 
   render() {
-    const {msg, previous, output, loading, saving, saved } = this.state
+    const {msg, previous, output, loading, saving, saved, failure} = this.state
 
     return (
       <div>
@@ -109,6 +118,9 @@ class SCARLET_frontend extends Component {
 
           <div className="App-button-holder">
             <button className="App-button2" type="submit" onClick={this.handleClick("text_output")}>{saving ? "Saving conversation...": saved ? "Saved" : "Download history"}</button>
+          </div>
+          <div className="App-button-holder">
+              <button className="App-button2" type="submit" onClick={this.handleClick2("async-dadjoke")}>{loading ? "trying": failure ? "failed" : "success"}</button>
           </div>
       </div>
     )

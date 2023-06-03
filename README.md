@@ -1,11 +1,11 @@
 ## SCARLET Web Portal
-___
+
 
 SCARLET is now available for testing at:
 
 https://scarletwebdevtest.netlify.app
 
-Or you can view this page locally by pulling this repo to your own machine and following the instructions in `run.md` 
+Or you can view this page locally by cloning this repo to your own machine and following the instructions in `run.md` 
 but if you decide to do this be warned the dependencies for this project are a little iffy, some trial and error may be 
 required.
 

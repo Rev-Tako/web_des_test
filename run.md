@@ -1,5 +1,5 @@
 ### Run SCARLET
-___
+
 
 this document will auto run required commands to launch the web portal locally.
 
@@ -15,3 +15,6 @@ When you are finished close the terminal to kill the local port or run:
 ```bash
 netstat -vanp tcp | grep 3000
 ```
+
+
+{ headers: { Accept: "application/json" } }
