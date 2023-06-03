@@ -12,7 +12,7 @@ export async function handler(event, context) {
         //body: input,
       });
       let data = response.data.msg
-      if (!(response.data.SCARLET_output===0)) {
+      if (!(response.data.SCARLET_output.length===0)) {
         data = response.data.SCARLET_output;
       }
       return {
