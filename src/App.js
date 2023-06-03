@@ -88,6 +88,7 @@ class SCARLET_frontend extends Component {
                         .replace(/\[/g, '')
                         .replace(/~/g, '<br />')
                         .replace(/"/g, '')
+                        .replace(/\n/g, '')
                         .replace(/\\/g, '')
                         .replace(/null/g, '')
                     scroll_logger = scroll_logger.replace(/>,/g, '>')
