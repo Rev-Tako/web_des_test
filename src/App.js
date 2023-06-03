@@ -83,10 +83,11 @@ class SCARLET_frontend extends Component {
                         msg: json.msg,
                         previous: [...prevState.previous, json.msg]
                     }))
+                    let regex = /<br\s*[\/]?>,/gi;
                     let scroll_logger = JSON.stringify(this.state.previous, null, 2)
                         .replace(/]/g, '')
                         .replace(/^,/g, '')
-                        .replace(/<br ?\/?>,/g, '<br />')
+                        .replace(regex, '<br />')
                         .replace(/\[/g, '')
                         .replace(/~/g, '<br />')
                         .replace(/"/g, '')
