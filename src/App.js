@@ -46,7 +46,8 @@ class SCARLET_frontend extends Component {
         e.preventDefault();
         this.setState({loading: true, failure: false});
         fetch("/.netlify/functions/" + api, {
-            method: 'GET'
+            method: 'POST',
+            body: JSON.stringify(this.state.value)
             }
         )
             .then(response => response.text())
@@ -108,19 +109,16 @@ class SCARLET_frontend extends Component {
             <span id="inner" dangerouslySetInnerHTML={{ __html: output }}/>
         </div>
         <br />
-        <form className="App-form" onSubmit={this.handleSubmit("text_input")}>
+        <form className="App-form" onSubmit={this.handleClick2("async-dadjoke")}>
             <label>
                 <input className='App-input_box' type="text" value={this.state.value} onChange={this.handleChange}   placeholder='Type Here'/>
             </label>
-            <input className='App-button' type="submit" value={loading ? "..." : "Send"}/>
+            <input className='App-button' type="submit" value={loading ? "trying": failure ? "failed" : "Send"}/>
         </form>
         <br />
 
           <div className="App-button-holder">
             <button className="App-button2" type="submit" onClick={this.handleClick("text_output")}>{saving ? "Saving conversation...": saved ? "Saved" : "Download history"}</button>
-          </div>
-          <div className="App-button-holder">
-              <button className="App-button2" type="submit" onClick={this.handleClick2("async-dadjoke")}>{loading ? "trying": failure ? "failed" : "success"}</button>
           </div>
       </div>
     )

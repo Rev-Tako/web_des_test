@@ -6,12 +6,10 @@ export async function handler(event, context) {
   try {
     const response = await axios.get("https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/");
     const data = response.data;
-    console.log(response.status);
-    console.log(response.data);
-    console.log(data);
     return {
       statusCode: response.status,
-      body: JSON.stringify(data)
+      input: JSON.stringify(event.body),
+      body: JSON.stringify(data),
     }
   } catch (err) {
     console.log(err) // output to netlify function log
