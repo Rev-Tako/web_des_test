@@ -83,17 +83,18 @@ class SCARLET_frontend extends Component {
                         msg: json.msg,
                         previous: [...prevState.previous, json.msg]
                     }))
+                    let scroll_logger = JSON.stringify(this.state.previous, null, 2)
+                        .replace(/]/g, '')
+                        .replace(/^,/g, '')
+                        .replace(/<br \/>,/g, '<br />')
+                        .replace(/\[/g, '')
+                        .replace(/~/g, '<br />')
+                        .replace(/"/g, '')
+                        .replace(/\\/g, '')
+                        .replace(/null/g, '')
+                    console.log(scroll_logger)
                     this.setState({loading: false,
-                        output:
-                            JSON.stringify(this.state.previous, null, 2)
-                                .replace(/]/g, '')
-                                .replace(/^,/g, '')
-                                .replace(/<br \/>,/g, '<br />')
-                                .replace(/\[/g, '')
-                                .replace(/~/g, '<br />')
-                                .replace(/"/g, '')
-                                .replace(/\\/g, '')
-                                .replace(/null/g, '')
+                        output: scroll_logger,
                     })
                 }
             }
