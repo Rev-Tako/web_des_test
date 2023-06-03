@@ -4,12 +4,12 @@ export async function handler(event, context) {
         if (!(event.body.replace(/"/g, '').length===0)) {
             const input = event.body.replace(/"/g, '');
             const response = await axios({
-                method: 'GET',
+                method: 'POST',
                 url: "https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/",
-                //body: input,
+                body: input,
             });
             let data = response.data.msg
-            if (!(response.data.SCARLET_output.length===0)) {
+            if (response.data.SCARLET_output && !(response.data.SCARLET_output.length===0)) {
                 data = response.data.SCARLET_output;
             }
             return {
