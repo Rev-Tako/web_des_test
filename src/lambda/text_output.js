@@ -7,7 +7,8 @@ export async function handler(event, context){
     let data = //required_data;
         JSON.stringify(event.body, null, 2)
             .replace(/]/g, '')
-            .replace('[', '')
+            .replace(/\[/g, '')
+            .replace(/^,/g, '')
             .replace(/<br \/>/g, '')
             .replace(/\\/g, '')
             .replace(/\n/g, '')
