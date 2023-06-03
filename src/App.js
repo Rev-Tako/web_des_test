@@ -72,7 +72,7 @@ class SCARLET_frontend extends Component {
                 if (!(json.msg.length===0)) {
                     this.setState(prevState => ({
                         loading: false, msg: json.msg, previous: [...prevState.previous, json.msg], output:
-                            json.msg.replace(/"/g, '').replace(/,/g, '<br />')
+                            json.msg.replace(/"/g, '').replace(/~/g, '<br />')
                     }))
                 }
 
@@ -88,7 +88,7 @@ class SCARLET_frontend extends Component {
                             JSON.stringify(this.state.previous, null, 2)
                                 .replace(/]/g, '')
                                 .replace('[', '')
-                                .replace(/,/g, '<br />')
+                                .replace(/~/g, '<br />')
                                 .replace(/"/g, '')
                                 .replace(/\\/g, '')
                                 .replace(/null/g, '')
