@@ -4,11 +4,14 @@
 import axios from "axios"
 export async function handler(event, context) {
   try {
-    const response = await axios.get("https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/");
-    const data = response.data;
-    return {
-      statusCode: response.status,
-      body: JSON.stringify({msg: ("user: " + event.body + ', , SCARLET: '+ data + ', ')}),
+    if (!(event.body.replace(/"/g, '').length===0)) {
+      const response = await axios.get("https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/");
+      const data = JSON.stringify(response.data);
+      const input = event.body.replace(/"/g, '');
+      return {
+        statusCode: response.status,
+        body: JSON.stringify({msg: ('user: ' + input + ', , SCARLET: ' + data + ', ')}),
+      }
     }
   } catch (err) {
     console.log(err) // output to netlify function log

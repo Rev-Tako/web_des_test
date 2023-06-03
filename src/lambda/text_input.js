@@ -1,6 +1,6 @@
 export async function handler(event, context) {
     if (!(event.body.replace(/"/g, '').length===0)) { // send user input to SCARLET here
-        const data = event.body
+        const data = event.body.replace(/"/g, '')
         // SCARLET call goes here scarlet
         return {
             statusCode: 200,
