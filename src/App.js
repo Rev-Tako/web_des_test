@@ -52,7 +52,7 @@ class SCARLET_frontend extends Component {
         )
             .then(response => response.json())
             .then(output => {
-                console.log(output.body);
+                console.log(output);
                 this.setState({loading: false, failure: false});
             })}
 
