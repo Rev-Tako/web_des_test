@@ -109,7 +109,7 @@ class SCARLET_frontend extends Component {
             <span id="inner" dangerouslySetInnerHTML={{ __html: output }}/>
         </div>
         <br />
-        <form className="App-form" onSubmit={this.handleClick2("async-dadjoke")}>
+        <form className="App-form" onSubmit={this.handleSubmit("text_input")}>
             <label>
                 <input className='App-input_box' type="text" value={this.state.value} onChange={this.handleChange}   placeholder='Type Here'/>
             </label>
