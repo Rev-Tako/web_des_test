@@ -87,7 +87,8 @@ class SCARLET_frontend extends Component {
                         output:
                             JSON.stringify(this.state.previous, null, 2)
                                 .replace(/]/g, '')
-                                .replace('[', '')
+                                .replace(/^,/, '')
+                                .replace(/\[/g, '')
                                 .replace(/~/g, '<br />')
                                 .replace(/"/g, '')
                                 .replace(/\\/g, '')
