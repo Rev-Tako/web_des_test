@@ -4,9 +4,16 @@ export async function handler(event, context){
     if (!(event.body.replace(/"/g, '').length===0)) {
 
     // This variable stores all the data.
-    let data = event.body//required_data;
-    // Convert the text to BLOB.
-    const textToBLOB = new Blob([data], { type: "text/plain" });
+    let data = //required_data;
+        JSON.stringify(event.body, null, 2)
+            .replace(/]/g, '')
+            .replace('[', '')
+            .replace(/<br \/>/g, '')
+            .replace(/"*/g, '{')
+            .replace(/\*"/g, '}')
+            .replace(/\\/g, '')
+            .replace(/\n/g, '')
+            .replace(/null/g, '')
 
     let date = new Date();
     let day = ("00" + date.getUTCDate()).slice (-2);
@@ -21,7 +28,6 @@ export async function handler(event, context){
         body: JSON.stringify({
         data: data,
         date: newdate,
-        blobout: textToBLOB,
         name: filename
         })
     }
