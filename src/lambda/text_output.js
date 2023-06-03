@@ -11,7 +11,7 @@ export async function handler(event, context){
             .replace(/^,/g, '')
             .replace(/<br \/>/g, '')
             .replace(/\\/g, '')
-            .replace(/\\n/g, '')
+            .replace(/\n/g, '')
             .replace(/null/g, '')
 
     let date = new Date();
