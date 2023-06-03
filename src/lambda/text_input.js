@@ -14,7 +14,7 @@ export async function handler(event, context) {
             }
             return {
                 statusCode: response.status,
-                body: JSON.stringify({msg: ('user: ' + input + '~ ~ SCARLET: ' + data + '~ ~\*')}),
+                body: JSON.stringify({msg: ('user: ' + input + '~ ~ SCARLET: ' + data + '~ ~')}),
             }
         } else  {
             return { // no input handling
