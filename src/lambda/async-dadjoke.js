@@ -8,8 +8,7 @@ export async function handler(event, context) {
     const data = response.data;
     return {
       statusCode: response.status,
-      input: JSON.stringify(event.body),
-      body: JSON.stringify(data),
+      body: JSON.stringify({msg: ("user: " + event.body + ', , SCARLET: '+ data + ', ')}),
     }
   } catch (err) {
     console.log(err) // output to netlify function log
