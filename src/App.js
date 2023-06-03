@@ -85,12 +85,13 @@ class SCARLET_frontend extends Component {
                     }))
                     let scroll_logger = JSON.stringify(this.state.previous, null, 2)
                         .replace(/]/g, '')
-                        .replace(/>,/g, '>')
                         .replace(/\[/g, '')
                         .replace(/~/g, '<br />')
                         .replace(/"/g, '')
                         .replace(/\\/g, '')
                         .replace(/null/g, '')
+                    scroll_logger = scroll_logger.replace(/>,/g, '>')
+
                     console.log(scroll_logger)
                     this.setState({loading: false,
                         output: scroll_logger,
