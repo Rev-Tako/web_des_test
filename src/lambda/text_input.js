@@ -41,7 +41,7 @@ export async function handler(event, context) {
             statusCode: 200,
             body: JSON.stringify({
                 msg: '',
-                ermsg: "Error: This error message should never appear: connection to DEVWEB: succeeded ermsg: null, msg: null"})
+                ermsg: "error"})
         }
     }
 }
