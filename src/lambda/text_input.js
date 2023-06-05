@@ -1,16 +1,14 @@
 import axios from "axios"
 export async function handler(event, context) {
     try {
-        this.state = {}
+        //this.state = {response: ''}
         if (!(event.body.replace(/"/g, '').length===0)) {
             this.setState({input: event.body.replace(/"/g, '')});
-            this.setState({
-                response: await axios({
+            this.state.response =  await axios({
                     method: 'POST',
                     url: "https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/",
                     body: this.state.input,
-                })
-            });
+            })
         } else  {
                     return { // no input handling
                         statusCode: 200,
