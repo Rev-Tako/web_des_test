@@ -76,7 +76,10 @@ class SCARLET_frontend extends Component {
                     }))
                 }
 
-            } else {
+            } else if (json.alert === '500') {
+                alert('Something went wrong, contact Graye or Dimitar to ensure SCARLET server is online')
+            }
+            else {
                 if (!(json.msg.length===0)) {
                     this.setState(prevState => ({
                         loading: false,
