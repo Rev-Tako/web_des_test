@@ -21,7 +21,7 @@ export async function handler(event, context) {
             statusCode: 200,
             body: JSON.stringify({
                 error: err.message,
-                msg: '',
+                msg: ('user: ' + this.state.input + '~ ~ SCARLET: An error occurred accessing my API'),
                 ermsg: 'Error: disconnect between netlify and DEVWEB API'})
         }
     }
@@ -34,14 +34,16 @@ export async function handler(event, context) {
     } else if (this.state.response.data.ermsg && !(this.state.response.data.ermsg.length===0)) {
         return {
             statusCode: 200,
-            body: JSON.stringify({msg: '', ermsg: this.state.response.data.ermsg})
+            body: JSON.stringify({
+                msg: ('user: ' + this.state.input + '~ ~ SCARLET: An error occurred accessing my knowledge graph'),
+                ermsg: this.state.response.data.ermsg})
         }
     } else {
         return { // no input handling
             statusCode: 200,
             body: JSON.stringify({
-                msg: '',
-                ermsg: "error"})
+                msg: ('user: ' + this.state.input + '~ ~ SCARLET: No response available'),
+                ermsg: "Did not return response or error"})
         }
     }
 }
