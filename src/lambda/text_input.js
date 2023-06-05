@@ -1,20 +1,20 @@
 import axios from "axios"
 export async function handler(event, context) {
     try {
-        //this.state = {response: ''}
+        this.state = {}
         if (!(event.body.replace(/"/g, '').length===0)) {
-            this.setState({input: event.body.replace(/"/g, '')});
+            this.state.input = event.body.replace(/"/g, '')
             this.state.response =  await axios({
                     method: 'POST',
                     url: "https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/",
                     body: this.state.input,
             })
         } else  {
-                    return { // no input handling
-                        statusCode: 200,
-                        body: JSON.stringify({ msg: '', ermsg: 'Error: no input'})
-                    }
-                }
+            return { // no input handling
+                statusCode: 200,
+                body: JSON.stringify({ msg: '', ermsg: 'Error: no input'})
+            }
+        }
 
     } catch (err) {
         return {
