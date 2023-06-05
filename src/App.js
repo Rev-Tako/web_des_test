@@ -74,8 +74,8 @@ class SCARLET_frontend extends Component {
                         loading: false, msg: json.msg, previous: [...prevState.previous, json.msg], output:
                             json.msg.replace(/"/g, '').replace(/~/g, '<br />')
                     }))
-                } else if (json.alert === '500') {
-                    alert('Something went wrong, contact Graye or Dimitar to ensure SCARLET server is online')
+                } else if (json.alert && !(json.alert.length===0)) {
+                    alert(json.alert)
                 }
             } else {
                 if (!(json.msg.length===0)) {

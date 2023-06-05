@@ -13,20 +13,22 @@ export async function handler(event, context) {
                 data = response.data.SCARLET_output;
             }
             return {
-                statusCode: response.status,
+                statusCode: 200,
                 body: JSON.stringify({msg: ('user: ' + input + '~ ~ SCARLET: ' + data + '~ ~')}),
             }
         } else  {
             return { // no input handling
                 statusCode: 200,
-                body: JSON.stringify({ msg: ''})
+                body: JSON.stringify({ msg: '', alert: 'no input'})
             }
         }
     } catch (err) {
         console.log(err) // output to netlify function log
         return {
-            statusCode: 500,
-            body: JSON.stringify({error: err.message, msg: '', alert: '500'}) // Could be a custom message or object i.e. JSON.stringify(err)
+            statusCode: 200,
+            body: JSON.stringify({error: err.message,
+                msg: '',
+                alert: 'Something went wrong, contact Graye or Dimitar to ensure SCARLET server is online'})
         }
     }
 }
