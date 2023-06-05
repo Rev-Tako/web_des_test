@@ -98,6 +98,8 @@ class SCARLET_frontend extends Component {
                     this.setState({loading: false,
                         output: scroll_logger,
                     })
+                } else if (json.ermsg && !(json.ermsg.length===0) && json.msg.length===0) {
+                    alert(json.ermsg)
                 }
             }
             this.setState({saved: false, loading: false, value: ''})
