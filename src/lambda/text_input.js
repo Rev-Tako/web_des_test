@@ -19,10 +19,10 @@ export async function handler(event, context) {
                 }
 
     } catch (err) {
-        console.log(err) // output to netlify function log
         return {
             statusCode: 200,
-            body: JSON.stringify({error: err.message,
+            body: JSON.stringify({
+                error: err.message,
                 msg: '',
                 ermsg: 'Error: disconnect between netlify and DEVWEB API'})
         }

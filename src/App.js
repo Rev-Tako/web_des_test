@@ -76,6 +76,8 @@ class SCARLET_frontend extends Component {
                     }))
                 } else if (json.ermsg && !(json.ermsg.length===0)) {
                     alert(json.ermsg)
+                    if ((json.error && !(json.error.length===0))) {
+                    console.log(json.error)}
                 } else {alert('Error: This error message should never appear: previous: null, msg: null, ermsg: null')}
             } else {
                 if (!(json.msg.length===0)) {
