@@ -28,7 +28,7 @@ export async function handler(event, context) {
             statusCode: 200,
             body: JSON.stringify({error: err.message,
                 msg: '',
-                alert: 'Something went wrong, contact Graye or Dimitar to ensure SCARLET server is online'})
+                ermsg: 'Something went wrong connecting to DEVWEB API'})
         }
     }
 }
