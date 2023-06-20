@@ -14,8 +14,12 @@ ntl dev
 When you are finished close the terminal to kill the local port or run:
 ```bash
 netstat -vanp tcp | grep 3000
-```
+sudo lsof -i :3000
 
+```
+kill -9 <PID>   - immediate (unsafe)
+kill -15 <PID>  - term (safer)
+kill -3 <PID>   - quit (safer)
 
 { headers: { Accept: "application/json" } }
 

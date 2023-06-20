@@ -1,6 +1,6 @@
 import React from "react";
 import { createChatBotMessage } from "react-chatbot-kit";
-import Options from "../components/Options/Options";
+//import Options from "../components/Options/Options";
 
 
 const config = {
@@ -11,7 +11,6 @@ const config = {
     },
     initialMessages: [
         createChatBotMessage(`Say "hello" to start`, {
-            widget: "options",
         }),
     ],
     /*widgets: [
