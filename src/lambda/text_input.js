@@ -13,13 +13,22 @@ class ActionProvider {
         try {
             console.log('inside try')
             const config = {
-                protocol: 'https',
+
                 method: 'POST',
                 URL: 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
                 body: message,
-                origin: 'https://scarletwebdevtest.netlify.app',
+
             }
-            const scarlet_response =  await axios(config)
+            const scarlet_response =  await axios.post(
+                'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
+                {
+                    "sender": 'user',
+                    "message": message,
+                },
+
+                   // origin: 'https://scarletwebdevtest.netlify.app',
+
+            )
             console.log(scarlet_response)
             console.log(scarlet_response.data)
             console.log(scarlet_response.data.body)
@@ -27,9 +36,9 @@ class ActionProvider {
             const scarlet = await scarlet_response.data.body.SCARLET_output
             const output = this.createChatBotMessage(scarlet.SCARLET_output);
             this.addMessageToState(output);
-        } catch (err) {
+        } catch (error) {
             console.log('inside catch')
-            console.log(err.message)
+            console.log(error.message)
             const output = this.createChatBotMessage('error, API disconnected');
             this.addMessageToState(output);
         }
