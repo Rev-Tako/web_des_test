@@ -8,13 +8,14 @@ class ActionProvider {
 
 
     async Handler(message){
-        let devwebURL = "https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/"
+        //let devwebURL = "https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/"
         console.log('inside handler')
         try {
             console.log('inside try')
             const scarlet_response =  await axios({
+                protocol: 'https',
                 method: 'POST',
-                URL: devwebURL,
+                URL: 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
                 body: message,
                 origin: 'https://scarletwebdevtest.netlify.app',
                 }
