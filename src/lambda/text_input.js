@@ -15,6 +15,7 @@ class ActionProvider {
             const output = this.createChatBotMessage(scarlet.SCARLET_output);
             this.addMessageToState(output);
         } catch (err) {
+            console.log(err.message)
             const output = this.createChatBotMessage('error, API disconnected');
             this.addMessageToState(output);
         }
