@@ -17,7 +17,6 @@ class ActionProvider {
                 URL: devwebURL,
                 body: message,
                 origin: 'https://scarletwebdevtest.netlify.app',
-                referer: 'https://scarletwebdevtest.netlify.app',
                 }
             )
             console.log(scarlet_response)
