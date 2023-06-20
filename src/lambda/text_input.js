@@ -32,6 +32,7 @@ class ActionProvider {
             console.log(scarlet_response.data.body.SCARLET_output)
             const scarlet = await scarlet_response.data.body.SCARLET_output
             const output = this.createChatBotMessage(scarlet.SCARLET_output);
+            console.log(output)
             this.addMessageToState(output);
         } catch (error) {
             console.log('inside catch')
