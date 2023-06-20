@@ -29,9 +29,9 @@ class ActionProvider {
                    // origin: 'https://scarletwebdevtest.netlify.app',
 
             )
-            console.log(scarlet_response.data.body.SCARLET_output.text)
+            console.log(scarlet_response.data.body.SCARLET_output)
             const scarlet = await scarlet_response.data.body.SCARLET_output
-            const output = this.createChatBotMessage(scarlet.SCARLET_output.text);
+            const output = this.createChatBotMessage(scarlet.SCARLET_output);
             this.addMessageToState(output);
         } catch (error) {
             console.log('inside catch')
