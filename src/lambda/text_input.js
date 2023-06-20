@@ -12,7 +12,15 @@ class ActionProvider {
         console.log('inside handler')
         try {
             console.log('inside try')
-            const scarlet_response =  await axios.post(devwebURL, message)
+            const scarlet_response =  await axios.post(
+                devwebURL,
+                message,
+                {
+                    headers: {
+                        'Access-Control-Allow-Origin': 'https://scarletwebdevtest.netlify.app',
+                    }
+                }
+            )
             const scarlet = await scarlet_response.data.body
             const output = this.createChatBotMessage(scarlet.SCARLET_output);
             this.addMessageToState(output);
