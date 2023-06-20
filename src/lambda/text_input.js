@@ -8,10 +8,10 @@ class ActionProvider {
 
 
     async Handler(message){
-        let URL = "https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/"
+        let URL = "https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/scarlet"
         try {
             const scarlet_response =  await axios.post(URL, message)
-            const scarlet = await scarlet_response.data
+            const scarlet = await scarlet_response.data.body
             const output = this.createChatBotMessage(scarlet.SCARLET_output);
             this.addMessageToState(output);
         } catch (err) {
