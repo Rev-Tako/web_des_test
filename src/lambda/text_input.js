@@ -9,12 +9,15 @@ class ActionProvider {
 
     async Handler(message){
         let URL = "https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/"
+        console.log('inside handler')
         try {
+            console.log('inside try')
             const scarlet_response =  await axios.post(URL, message)
             const scarlet = await scarlet_response.data.body
             const output = this.createChatBotMessage(scarlet.SCARLET_output);
             this.addMessageToState(output);
         } catch (err) {
+            console.log('inside catch')
             console.log(err.message)
             const output = this.createChatBotMessage('error, API disconnected');
             this.addMessageToState(output);
