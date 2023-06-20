@@ -20,7 +20,11 @@ class ActionProvider {
                 referer: 'https://scarletwebdevtest.netlify.app',
                 }
             )
-            const scarlet = await scarlet_response.data.body
+            console.log(scarlet_response)
+            console.log(scarlet_response.data)
+            console.log(scarlet_response.data.body)
+            console.log(scarlet_response.data.body.SCARLET_output)
+            const scarlet = await scarlet_response.data.body.SCARLET_output
             const output = this.createChatBotMessage(scarlet.SCARLET_output);
             this.addMessageToState(output);
         } catch (err) {
