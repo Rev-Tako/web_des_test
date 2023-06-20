@@ -1,5 +1,5 @@
-import axios from "axios"
-
+//import axios from "axios"
+const axios = require('axios')
 class ActionProvider {
     constructor(createChatBotMessage, setStateFunc) {
         this.createChatBotMessage = createChatBotMessage;
