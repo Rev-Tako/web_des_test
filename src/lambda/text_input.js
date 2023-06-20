@@ -12,13 +12,12 @@ class ActionProvider {
         console.log('inside handler')
         try {
             console.log('inside try')
-            const scarlet_response =  await axios.post(
-                devwebURL,
-                message,
-                {
-                    headers: {
-                        'Access-Control-Allow-Origin': 'https://scarletwebdevtest.netlify.app',
-                    }
+            const scarlet_response =  await axios({
+                method: 'POST',
+                URL: devwebURL,
+                body: message,
+                origin: 'https://scarletwebdevtest.netlify.app',
+                referer: 'https://scarletwebdevtest.netlify.app',
                 }
             )
             const scarlet = await scarlet_response.data.body
