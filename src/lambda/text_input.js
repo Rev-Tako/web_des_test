@@ -1,5 +1,44 @@
 import axios from "axios"
-export async function handler(event, context) {
+
+class ActionProvider {
+    constructor(createChatBotMessage, setStateFunc) {
+        this.createChatBotMessage = createChatBotMessage;
+        this.setState = setStateFunc;
+    }
+
+
+    async Handler(message){
+        URL = "https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/"
+        try {
+            const scarlet_response =  await axios.post(URL, message)
+            const scarlet = await scarlet_response.data
+            const output = this.createChatBotMessage(scarlet.SCARLET_output);
+            this.addMessageToState(output);
+        } catch (err) {
+            console.log(err.message)
+            const output = this.createChatBotMessage('error, SCARLET disconnected');
+            this.addMessageToState(output);
+        }
+    }
+
+
+    addMessageToState = (message) => {
+        this.setState((prevState) => ({
+            ...prevState,
+            messages: [...prevState.messages, message],
+        }));
+    };
+}
+
+export default ActionProvider;
+
+
+
+
+
+
+
+/*export async function handler(event, context) {
     try {
         this.state = {}
         if (!(event.body.replace(/"/g, '').length===0)) {
@@ -47,3 +86,4 @@ export async function handler(event, context) {
         }
     }
 }
+*/

@@ -18,3 +18,18 @@ netstat -vanp tcp | grep 3000
 
 
 { headers: { Accept: "application/json" } }
+
+
+      <header className='App-header'>
+          <p>
+              SCARLET
+          </p>
+      </header>
+
+
+      <body className="App-body">
+            <SCARLET_frontend />
+      </body>
+
+
+/*./index.html*/

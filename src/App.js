@@ -1,8 +1,39 @@
-import React, { Component } from "react"
-import "./App.css"
+import React, { Component } from "react";
+import Chatbot from "react-chatbot-kit";
+import 'react-chatbot-kit/build/main.css';
+import "./App.css";
+import image from './botLogo.png';
 
 
-class SCARLET_frontend extends Component {
+import config from "./lambda/config";
+import ActionProvider from "./lambda/text_input";
+import MessageParser from "./lambda/MessageParser";
+
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <div className='App-body' >
+                    <div className="App-chatbox">
+                        <div style={{minWidth: '50vw', maxWidth: '50vw'}}>
+                            <Chatbot
+                                config={config}
+                                actionProvider={ActionProvider}
+                                messageParser={MessageParser}
+                                steps={[ ]}
+                                botAvater={image}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+
+export default App
+
+/*class SCARLET_frontend extends Component {
   constructor(props) {
     super(props)
     this.state = {saved: false, failure: false, loading: false, saving: false, msg: null, msg2: null, value: '', previous: [], output: null};
@@ -109,7 +140,17 @@ class SCARLET_frontend extends Component {
 
     }
 
-  render() {
+    render () {
+        const {msg, previous, output, loading, saving, saved, failure} = this.state
+      return (
+          <div>
+              <div className="App-button-holder">
+                  <button className="App-button2" type="submit" onClick={this.handleClick("text_output")}>{saving ? "Saving conversation...": saved ? "Saved" : "Download history"}</button>
+              </div>
+          </div>
+      )
+    }*/
+  /* render() {
     const {msg, previous, output, loading, saving, saved, failure} = this.state
 
     return (
@@ -131,24 +172,25 @@ class SCARLET_frontend extends Component {
           </div>
       </div>
     )
-  }
-}
+  }*/
 
-class App extends Component {
-  render() {
-    return (
-      <html>
-      <header className='App-header'>
-          <p>
-              SCARLET
-          </p>
-      </header>
-      <body className="App-body">
-            <SCARLET_frontend />
-      </body>
-      </html>
-    )
-  }
-}
 
-export default App
+
+
+
+/*function App () {
+        return (
+            <div className="App-chatbox">
+                <div style={{ maxWidth: "300px" }}>
+                    <Chatbot
+                        config={config}
+                        actionProvider={ActionProvider}
+                        messageParser={MessageParser}
+                    />
+                </div>
+            </div>
+        )
+}*/
+
+
+

@@ -2,22 +2,26 @@
   height: calc(30px + 2vmin);
 }
 
+.box-style{
+  width: 50vw;
+}
+
 .App-header {
 
   background-color: #333333;
-  height: 20vh;
+  height: 15vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 15vh;
+  font-size: 10vh;
   font-family: ui-sans-serif;
   color: #990000;
 }
 
 .App-body {
-  background-color: #333333;
-  height: 80vh;
+  background-color: #999999;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -26,7 +30,15 @@
   color: #990000;
 }
 
-.App-button {
+.App-chatbox{
+  text-align: center;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-button0 {
   display: flex;
   background-color: #550000;
   height: 6vh;
@@ -114,6 +126,87 @@
   color: #660000;
   opacity: 1; /* Firefox */
 }
+
+
+.react-chatbot-kit-chat-container {
+}
+
+.react-chatbot-kit-chat-inner-container {
+  background-color: #888888;
+}
+
+.react-chatbot-kit-chat-header {
+}
+
+.react-chatbot-kit-chat-input-container {
+}
+
+.react-chatbot-kit-chat-message-container {
+}
+
+.react-chatbot-kit-chat-input {
+}
+
+.react-chatbot-kit-chat-input-form {
+}
+
+.react-chatbot-kit-chat-input::placeholder {
+}
+
+.react-chatbot-kit-chat-btn-send {
+}
+
+.react-chatbot-kit-chat-btn-send-icon {
+}
+
+.react-chatbot-kit-chat-bot-message-container {
+}
+
+.react-chatbot-kit-chat-bot-avatar-container {
+}
+
+.react-chatbot-kit-chat-bot-avatar-icon {
+}
+
+.react-chatbot-kit-chat-bot-avatar-letter {
+}
+
+.react-chatbot-kit-chat-bot-message {
+}
+
+.react-chatbot-kit-chat-bot-message-arrow {
+}
+
+.react-chatbot-kit-chat-bot-loading-icon-container {
+}
+
+.chatbot-loader-container {
+}
+
+#chatbot-loader #chatbot-loader-dot1 {
+}
+
+#chatbot-loader #chatbot-loader-dot2 {
+}
+
+#chatbot-loader #chatbot-loader-dot3 {
+}
+
+.react-chatbot-kit-error {
+}
+
+.react-chatbot-kit-error-container {
+}
+
+.react-chatbot-kit-error-header {
+}
+
+.react-chatbot-kit-error-docs {
+}
+
+
+
+
 
 @keyframes App-logo-spin {
   from {
