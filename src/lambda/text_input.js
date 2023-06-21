@@ -22,10 +22,10 @@ class ActionProvider {
                     }
                 },
             )
-            console.log('scarlet response: ' + scarlet_response.data.body) //.body.SCARLET_output)
+            console.log(scarlet_response.data.body) //.body.SCARLET_output)
             var scarlet = await scarlet_response.data.body.SCARLET_output
+            console.log(await scarlet)
             const output = this.createChatBotMessage(await scarlet);
-            console.log('output: ' + await output)
             this.addMessageToState(await output);
         } catch (error) {
             console.log('inside catch')
