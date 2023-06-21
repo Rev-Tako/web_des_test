@@ -12,6 +12,7 @@ class ActionProvider {
         console.log('inside handler')
         try {
             console.log('inside try')
+            console.log('message: ' + message)
             const scarlet_response =  await axios.post(
                 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
                 {
