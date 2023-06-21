@@ -16,10 +16,11 @@ class ActionProvider {
             const scarlet_response =  await axios.post(
                 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
                 {
-                    body: {
-                        sender: 'user',
-                        user_input: message,
-                    }
+                    body: message,
+                    // {
+                    //     sender: 'user',
+                    //     user_input: message,
+                    // }
                 },
             )
             console.log(scarlet_response.data.body) //.body.SCARLET_output)
