@@ -23,9 +23,8 @@ class ActionProvider {
                 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
                 {
                     body: {
-                        'x-www-form-urlencoded': {
                         "sender": 'user',
-                        "message": message,}
+                        "message": message,
                     }
                 },
 
