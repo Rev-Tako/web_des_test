@@ -17,8 +17,8 @@ class ActionProvider {
                 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
                 {
                     body: {
-                        "sender": 'user',
-                        "msg": message,
+                        sender: 'user',
+                        user_input: message,
                     }
                 },
             )
