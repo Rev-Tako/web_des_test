@@ -22,8 +22,11 @@ class ActionProvider {
             const scarlet_response =  await axios.post(
                 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
                 {
-                    "sender": 'user',
-                    "message": message,
+                    body: {
+                        'x-www-form-urlencoded': {
+                        "sender": 'user',
+                        "message": message,}
+                    }
                 },
 
                    // origin: 'https://scarletwebdevtest.netlify.app',
