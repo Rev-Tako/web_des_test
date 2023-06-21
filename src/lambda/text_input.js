@@ -22,7 +22,7 @@ class ActionProvider {
                     }
                 },
             )
-            console.log(scarlet_response.data.body.SCARLET_output)
+            console.log(scarlet_response.data) //.body.SCARLET_output)
             var scarlet = await scarlet_response.data.body.SCARLET_output
             const output = this.createChatBotMessage(await scarlet);
             console.log(await output)
