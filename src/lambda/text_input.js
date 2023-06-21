@@ -18,7 +18,7 @@ class ActionProvider {
                 {
                     body: {
                         "sender": 'user',
-                        "message": message,
+                        "msg": message,
                     }
                 },
             )
