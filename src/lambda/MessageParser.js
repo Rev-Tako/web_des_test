@@ -6,7 +6,7 @@ class MessageParser {
     parse(message) {
         console.log('inside parser');
         if (!(message.length === 0)){
-            this.actionProvider.Handler(message);
+            this.actionProvider.Handler(message.text);
         }
     }
 }

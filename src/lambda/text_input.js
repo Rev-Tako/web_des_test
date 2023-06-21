@@ -12,13 +12,6 @@ class ActionProvider {
         console.log('inside handler')
         try {
             console.log('inside try')
-            const config = {
-
-                method: 'POST',
-                URL: 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
-                body: message,
-
-            }
             const scarlet_response =  await axios.post(
                 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
                 {
@@ -27,9 +20,6 @@ class ActionProvider {
                         "message": message,
                     }
                 },
-
-                   // origin: 'https://scarletwebdevtest.netlify.app',
-
             )
             console.log(scarlet_response.data.body.SCARLET_output)
             var scarlet = await scarlet_response.data.body.SCARLET_output
