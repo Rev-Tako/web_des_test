@@ -9,10 +9,7 @@ class ActionProvider {
 
     async Handler(message){
         //let devwebURL = "https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/"
-        console.log('inside handler')
         try {
-            console.log('inside try')
-            console.log('message: ' + message)
             const scarlet_response =  await axios.post(
                 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
                 {
@@ -23,13 +20,14 @@ class ActionProvider {
                     // }
                 },
             )
-            console.log(scarlet_response.data.body) //.body.SCARLET_output)
             var scarlet = await scarlet_response.data.body.SCARLET_output
             console.log(await scarlet)
-            const output = this.createChatBotMessage(await scarlet);
-            this.addMessageToState(await output);
+            for (const inner of await scarlet)
+            {
+                const output = this.createChatBotMessage(inner.text);
+                this.addMessageToState(await output);
+            }
         } catch (error) {
-            console.log('inside catch')
             console.log(error.message)
             const output = this.createChatBotMessage('error, API disconnected');
             this.addMessageToState(await output);
