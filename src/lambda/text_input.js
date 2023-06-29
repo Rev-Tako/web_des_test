@@ -42,8 +42,8 @@ class ActionProvider {
             const saved = await axios.get(
                 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/save')
             console.log(await saved)
-            console.log(await saved.data)
-            const output = this.createChatBotMessage(await saved.data);
+            console.log(await saved.data.body.SCARLET_output)
+            const output = this.createChatBotMessage(await saved.data.body.SCARLET_output);
             this.addMessageToState(output);
         } catch (err) {
             console.log('textSave CATCH')
