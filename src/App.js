@@ -12,10 +12,8 @@ import MessageParser from "./lambda/MessageParser";
 class App extends Component {
     render() {
         return (
-            <div>
                 <div className='App-body' >
                     <div className="App-chatbox">
-                        <div style={{minWidth: '50vw', maxWidth: '50vw'}}>
                             <Chatbot
                                 config={config}
                                 actionProvider={ActionProvider}
@@ -23,10 +21,9 @@ class App extends Component {
                                 steps={[ ]}
                                 botAvater={image}
                             />
-                        </div>
                     </div>
                 </div>
-            </div>
+
         )
     }
 }

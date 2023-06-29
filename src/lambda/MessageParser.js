@@ -4,9 +4,13 @@ class MessageParser {
     }
 
     parse(message) {
-        console.log('inside parser');
         if (!(message.length === 0)){
+            const lowercase = message.toLowerCase();
+            if (lowercase === 'save'){
+                this.actionProvider.textSave();
+            } else {
             this.actionProvider.Handler(message);
+            }
         }
     }
 }

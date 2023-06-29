@@ -1,4 +1,3 @@
-//import axios from "axios"
 const axios = require('axios')
 class ActionProvider {
     constructor(createChatBotMessage, setStateFunc) {
@@ -8,16 +7,11 @@ class ActionProvider {
 
 
     async Handler(message){
-        //let devwebURL = "https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/"
         try {
             const scarlet_response =  await axios.post(
                 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
                 {
                     body: message,
-                    // {
-                    //     sender: 'user',
-                    //     user_input: message,
-                    // }
                 },
             )
             var scarlet = await scarlet_response.data.body.SCARLET_output
@@ -28,8 +22,7 @@ class ActionProvider {
                 this.addMessageToState(await output);
             }
         } catch (error) {
-            console.log(error.message)
-            const output = this.createChatBotMessage('error, API disconnected');
+            const output = this.createChatBotMessage('no return from SCARLET: ' + error.message);
             this.addMessageToState(await output);
         }
     }
@@ -40,6 +33,22 @@ class ActionProvider {
             ...prevState,
             messages: [...prevState.messages, message],
         }));
+    };
+
+    async textSave(){
+        try {
+            console.log('textSave TRY')
+            const saved = await axios.get(
+                'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/save')
+            console.log(await saved)
+            console.log(await saved.data)
+            const output = this.createChatBotMessage(await saved.data);
+            this.addMessageToState(output);
+        } catch (err) {
+            console.log('textSave CATCH')
+            const output = this.createChatBotMessage('Conversation not saved: ' + err.message);
+            this.addMessageToState(output);
+        }
     };
 }
 
