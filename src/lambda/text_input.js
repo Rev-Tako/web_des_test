@@ -42,7 +42,7 @@ class ActionProvider {
             const saved = await axios.get(
                 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/save')
             console.log(await saved)
-            console.log(await saved.data.body.SCARLET_output.text)
+            console.log(await saved.data.body.SCARLET_output[0].text)
             const output = this.createChatBotMessage(await saved.data.body.SCARLET_output[0].text);
             this.addMessageToState(output);
         } catch (err) {
