@@ -15,7 +15,7 @@ class ActionProvider {
                 },
             )
             console.log(await scarlet_response)
-            var scarlet = await scarlet_response.data.body.SCARLET_output
+            var scarlet = await scarlet_response.data.SCARLET_output
             console.log(await scarlet)
             for (const inner of await scarlet)
             {
