@@ -3,15 +3,19 @@ class ActionProvider {
     constructor(createChatBotMessage, setStateFunc) {
         this.createChatBotMessage = createChatBotMessage;
         this.setState = setStateFunc;
+        this.user_ID = Math.floor(Math.random() * 1000);
+        this.iterant = 0
     }
 
 
     async Handler(message){
         try {
+            console.log('user:' + this.user_ID + '_' + this.iterant)
             const scarlet_response =  await axios.post(
                 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
                 {
                     body: message,
+                    user_id: this.user_ID + '_' + this.iterant
                 },
             )
             console.log(await scarlet_response)
@@ -36,20 +40,34 @@ class ActionProvider {
         }));
     };
 
-    async textSave(){
-        try {
-            console.log('textSave TRY')
-            const saved = await axios.get(
-                'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/save')
-            console.log(await saved)
-            console.log(await saved.data.body.SCARLET_output[0].text)
-            const output = this.createChatBotMessage(await saved.data.body.SCARLET_output[0].text);
-            this.addMessageToState(output);
-        } catch (err) {
-            console.log('textSave CATCH')
-            const output = this.createChatBotMessage('Conversation not saved: ' + err.message);
-            this.addMessageToState(output);
-        }
+    // async textSave(){
+    //     try {
+    //         console.log('textSave TRY')
+    //         const saved = await axios.get(
+    //             'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/save')
+    //         console.log(await saved)
+    //         const output = this.createChatBotMessage(await saved.data.body.SCARLET_output[0].text);
+    //         this.addMessageToState(output);
+    //     } catch (err) {
+    //         console.log('textSave CATCH')
+    //         const output = this.createChatBotMessage('Conversation not saved: ' + err.message);
+    //         this.addMessageToState(output);
+    //     }
+    // };
+    async reinitialise() {
+        this.setState((prevState) => ({
+            iterant: prevState.iterant + 1
+        }))
+        console.log('updated user:' + this.user_ID + '_' + this.iterant)
+        // try {
+        //     const uplink = await axios.get(
+        //         'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/uplink')
+        //     const output = this.createChatBotMessage(await uplink.data.body.SCARLET_output[0].text);
+        //     this.addMessageToState(output);
+        // } catch (err){
+        //     const output = this.createChatBotMessage('bot inactive, initialise failed: ' + err.message);
+        //     this.addMessageToState(output);
+        // }
     };
 }
 
