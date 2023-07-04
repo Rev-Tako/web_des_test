@@ -10,12 +10,24 @@ class ActionProvider {
 
     async Handler(message){
         try {
-            console.log('user:' + this.user_ID + '_' + this.iterant)
+            var initFlag = false
+            // console.log('user:' + this.user_ID + '_' + this.iterant)
+            const lowercase = message.toLowerCase();
+            if (lowercase === '/restart'){
+            //     console.log('switch to reinitialise')
+            //     this.reinitialise();
+            //     console.log('back to handler')
+                    initFlag = true
+            }
+            // console.log('progressing')
+            // var conversation_number = this.user_ID + '_' + this.iterant
+            //console.log('new number: ' + conversation_number)
             const scarlet_response =  await axios.post(
                 'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/',
                 {
                     body: message,
-                    user_id: this.user_ID + '_' + this.iterant
+                    user_id: this.user_ID,
+                    reinit: initFlag,
                 },
             )
             console.log(await scarlet_response)
@@ -54,11 +66,17 @@ class ActionProvider {
     //         this.addMessageToState(output);
     //     }
     // };
-    async reinitialise() {
-        this.setState((prevState) => ({
-            iterant: prevState.iterant + 1
-        }))
-        console.log('updated user:' + this.user_ID + '_' + this.iterant)
+    reinitialise() {
+        try{
+            console.log('try initialise')
+            this.setState((prevState) => ({
+                iterant: prevState.iterant + 1
+            }))
+            console.log('updated user:' + this.user_ID + '_' + this.iterant)
+        } catch (err) {
+            console.log('catch initialise')
+            console.log(err.message)
+        }
         // try {
         //     const uplink = await axios.get(
         //         'https://devweb2022.cis.strath.ac.uk/pqb20197-nodejs/uplink')
