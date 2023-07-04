@@ -3,7 +3,12 @@ class ActionProvider {
     constructor(createChatBotMessage, setStateFunc) {
         this.createChatBotMessage = createChatBotMessage;
         this.setState = setStateFunc;
-        this.user_ID = Math.floor(Math.random() * 1000);
+        if (localStorage.getItem('userID') === null){
+            this.user_ID = Math.floor(Math.random() * 1000);
+            localStorage.setItem('userID', this.user_ID.toString())
+        } else {
+            this.user_ID = parseInt(localStorage.getItem('userID'))
+        }
         this.iterant = 0
     }
 
