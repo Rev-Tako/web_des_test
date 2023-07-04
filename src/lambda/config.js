@@ -2,7 +2,7 @@ import React from "react";
 import { createChatBotMessage } from "react-chatbot-kit";
 //import Options from "../components/Options/Options";
 
-const initial_message = '/restart'
+//const initial_message = '/restart'
 
 const config = {
     botName: "SCARLET",

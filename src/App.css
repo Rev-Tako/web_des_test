@@ -94,31 +94,48 @@
   background-color: #999999;
   align-items: self-start;
   justify-content: left;
-  border: 1px solid #999999;
+  border: 3px solid #666666;
   text-align: left;
   text-wrap: normal;
   font-size: calc(5px + 2vmin);
-  height: 50vh;
-  width: 70vw;
+  height: 67vh;
+  width: 30vw;
   max-height: calc(600px + 2vmin);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   overflow: auto;
+  padding: 5px;
 }
 
-.App-scroller span {
-  align-self: flex-end;
+.App-scroller h3 {
+  color: #333333;
+
+  align-self: flex-start;
   align-items: self-start;
+  justify-content: left;
+}
+.App-scroller p {
+  color: #333333;
   justify-content: left;
 }
 
 .App-form{
-  background-color: #333333;
+  background-color: #999999;
   height: fit-content;
   display: flex;
-  flex-direction: row;
-  width: 70vw;
+  flex-direction: column;
+  width: 30vw;
   align-items: center;
+  justify-content: left;
+  padding-bottom: 5vh;
+  padding-top: 5vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+.App-form span {
+  color: #990000;
+  align-self: flex-start;
+  align-items: self-start;
   justify-content: left;
 }
 

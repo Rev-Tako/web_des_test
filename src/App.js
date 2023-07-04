@@ -22,6 +22,60 @@ class App extends Component {
                                 botAvater={image}
                             />
                     </div>
+
+                        <div className="App-form">
+                            <span> SCARLET is currently offline for maintenance.</span>
+                            <div className="App-scroller">
+                                <h3>SCARLET Testing strategy</h3>
+                                <p>
+                                    What we are testing for:
+                                </p>
+                                <p>
+                                   * Does the system respond appropriately?<br/>
+                                   * Does the system continue to respond appropriately when queries are misspelled?<br/>
+                                   * Does the system respond similarly to rephrased queries?<br/>
+                                   * Does the system detect the user’s meaning and intent reliably?<br/>
+                                </p>
+                                <p>
+                                    Query sets are split into command and retrieval interactions, with command interactions being the basic functions of SCARLET, and retrievals being utterances which illicit specific information.
+                                </p>
+                                <p>
+                                    For the command tests, please use the /restart command after each input. Once these are completed you can move on to the retrieval interactions.<br/>
+                                    For commands h. and m., please repeat with the blank filled with topics of your choosing.<br/>
+                                    Note the topics below and I will collate these.<br/>
+                                    Each time a command is used, please note whether the system responds appropriately. This will improve the captured data.<br/>
+                                </p>
+                                <p>
+                                    Queries in the Retrieval set have one base query then variants thereof, this is to test robustness.
+                                </p>
+                                <p>
+                                    Please work through the provided questions and mark the chatbot’s responses as True Positive (TP) if it responds exactly as expected, as False Positive (FP) if it responds as if a different input was detected, and as False Negative (FN) if it fails to answer when it should have been able to.
+                                </p>
+                                <p>
+                                    The provided questions should all provoke a positive response so any failure to answer, including the failure message should be marked as a false negative.
+                                </p>
+                                <p>
+                                    For question e. please fill the blank with a topic of your choosing, and repeat for up to 5 topics. Note the topics you select in the space below.
+                                </p>
+                                <p>
+                                    It may be hard to tell if the system produces a false positive, if there is doubt, please ask Graye or Dimitar.
+                                </p>
+                                <p>
+                                    When retrieving information, once a result set has been retrieved, please ask some questions about the data points that you feel are not answered by the data that has been returned. This will help us create a dataset of human-generated questions that we can use to improve our capture system.
+                                </p>
+                                <p>
+                                    If you can write down these questions and whether the system answers them or not, that will help us greatly.
+                                </p>
+                                <p>
+                                    You do not need to attempt the full set in one sitting, it may take some time. Any results you do gather can be sent back to me in a piecemeal fashion so that I can analyse and collate them.
+                                </p>
+                                <p>
+                                    Thank you for taking part.
+                                </p>
+
+                            </div>
+                        </div>
+
                 </div>
 
         )
