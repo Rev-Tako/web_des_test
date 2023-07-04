@@ -19,7 +19,7 @@ class ActionProvider {
             //     console.log('back to handler')
                     initFlag = true
             }
-            // console.log('progressing')
+            console.log(this.user_ID)
             // var conversation_number = this.user_ID + '_' + this.iterant
             //console.log('new number: ' + conversation_number)
             const scarlet_response =  await axios.post(
