@@ -24,7 +24,7 @@ class App extends Component {
                     </div>
 
                         <div className="App-form">
-                            <span> SCARLET is currently offline for maintenance.</span>
+                            {/*<span> SCARLET is currently offline for maintenance.</span>*/}
                             <div className="App-scroller">
                                 <h3>SCARLET Testing strategy</h3>
                                 <p>
