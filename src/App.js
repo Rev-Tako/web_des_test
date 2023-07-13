@@ -10,6 +10,33 @@ import ActionProvider from "./lambda/text_input";
 import MessageParser from "./lambda/MessageParser";
 
 class App extends Component {
+    // constructor(props) {
+    //     super(props)
+    //     this.state = { loading: false, msg: null, value: '' };
+    //     this.openCity = this.openCity.bind(this);
+    // }
+    // openCity(cityName) {
+    //     // Declare all variables
+    //     var i, tabcontent, tablinks;
+    //     var event = this.event
+    //     // Get all elements with class="tabcontent" and hide them
+    //     tabcontent = document.getElementsByClassName("tabcontent");
+    //     for (i = 0; i < tabcontent.length; i++) {
+    //         tabcontent[i].style.display = "none";
+    //     }
+    //
+    //     // Get all elements with class="tablinks" and remove the class "active"
+    //     tablinks = document.getElementsByClassName("tablinks");
+    //     for (i = 0; i < tablinks.length; i++) {
+    //         tablinks[i].className = tablinks[i].className.replace(" active", "");
+    //     }
+    //     console.log(cityName)
+    //     console.log(event)
+    //     // Show the current tab, and add an "active" class to the button that opened the tab
+    //     // document.getElementById(cityName).style.display = "block";
+    //     //event.currentTarget.className += " active";
+    // }
+
     render() {
         return (
                 <div className='App-body' >
@@ -25,6 +52,21 @@ class App extends Component {
 
                         <div className="App-form">
                             {/*<span> SCARLET is currently offline for maintenance.</span>*/}
+                            {/*<div className="tab">*/}
+                            {/*    <button className="tablinks" onClick={this.openCity("London")}>London</button>*/}
+                            {/*    <button className="tablinks" onClick={this.openCity("Paris")}>Paris</button>*/}
+                            {/*</div>*/}
+
+                            {/*/!*Tab content*!/*/}
+                            {/*<div id="London" className="tabcontent">*/}
+                            {/*    <h3>London</h3>*/}
+                            {/*    <p>London is the capital city of England.</p>*/}
+                            {/*</div>*/}
+
+                            {/*<div id="Paris" className="tabcontent">*/}
+                            {/*    <h3>Paris</h3>*/}
+                            {/*    <p>Paris is the capital of France.</p>*/}
+                            {/*</div>*/}
                             <div className="App-scroller">
                                 <h3>SCARLET Testing strategy</h3>
                                 <p>
@@ -72,7 +114,187 @@ class App extends Component {
                                 <p>
                                     Thank you for taking part.
                                 </p>
-
+                                <h3>Command Interactions</h3>
+                                <p>
+                                    a. Hi
+                                </p>
+                                <p>
+                                    b. hello
+                                </p>
+                                <p>
+                                    c. hey
+                                </p>
+                                <p>
+                                    d. hi there
+                                </p>
+                                <p>
+                                    e. I want to learn
+                                </p>
+                                <p>
+                                    f. I want to retrieve a lesson
+                                </p>
+                                <p>
+                                    g. I want you to tell me something
+                                </p>
+                                <p>
+                                    h. Tell me about ___
+                                </p>
+                                <p>
+                                    i. Teach me something
+                                </p>
+                                <p>
+                                    j. I want to tell you something
+                                </p>
+                                <p>
+                                    k. I want to capture a lesson
+                                </p>
+                                <p>
+                                    l. I want to give you a lesson
+                                </p>
+                                <p>
+                                    m. I want to tell you about ___
+                                </p>
+                                <p>
+                                    n. I want to teach you something
+                                </p>
+                                <h3>Retrieval Interactions</h3>
+                                <p>
+                                    a. Tell me about Propulsion?
+                                </p>
+                                <p>
+                                    a.a) What is propulsion?
+                                </p>
+                                <p>
+                                    a.b) What can you tell me about
+                                    propulsion?
+                                </p>
+                                <p>
+                                    a.c) Do you have information about
+                                    propulsion?
+                                </p>
+                                <p>
+                                    a.d) Do you have any lessons about
+                                    propulsion?
+                                </p>
+                                <p>
+                                    a.e) Who is propulsion? - (inappropriate
+                                    phrasing)
+                                </p>
+                                <p>
+                                    a.f) what is porpulsion? - (spelling error) a.g) what is proplusion? - (spelling error)
+                                </p>
+                                <p>
+                                    b. Tell me about optics
+                                </p>
+                                <p>
+                                    b.a) What is optics?
+                                </p>
+                                <p>
+                                    b.b) What can you tell me about optics?
+                                </p>
+                                <p>
+                                    b.c) What is optics the study of?
+                                </p>
+                                <p>
+                                    b.d) Do you have any lessons about optics?
+                                </p>
+                                <p>
+                                    b.e) What is otpics?
+                                </p>
+                                <p>
+                                    b.f) Who is optics?
+                                </p>
+                                <p>
+                                    c. Tell me about Buzz Aldrin
+                                </p>
+                                <p>
+                                    c.a) Who is Buzz Aldrin?
+                                </p>
+                                <p>
+                                    c.b) Who was Buzz Aldrin?
+                                </p>
+                                <p>
+                                    c.c) What do you know about Buzz Aldrin?
+                                </p>
+                                <p>
+                                    c.d) What is Buzz Aldrin?
+                                </p>
+                                <p>
+                                    c.e) Who is Buz Aldrin?
+                                </p>
+                                <p>
+                                    c.f) Who is Buzz Alrdin?
+                                </p>
+                                <p>
+                                    d. Tell me about ESA
+                                </p>
+                                <p>
+                                    d.a) What is ESA?
+                                </p>
+                                <p>
+                                    d.b) Who is ESA?
+                                </p>
+                                <p>
+                                    d.c) What do you know about ESA?
+                                </p>
+                                <p>
+                                    e. What lessons do you have on ___
+                                </p>
+                                <h3>Capture Interactions</h3>
+                                <p>
+                                    a. I want to add a lesson
+                                </p>
+                                <p>
+                                    a.a) The topic is ___
+                                </p>
+                                <p>
+                                    a.b) The lesson is ___
+                                </p>
+                                <p>
+                                    a.c) (add background) - yes
+                                </p>
+                                <p>
+                                    a.d) The background is ___
+                                </p>
+                                <p>
+                                    a.e) (is this correct?) - yes
+                                </p>
+                                <p>
+                                    a.f) The topic is ___
+                                </p>
+                                <p>
+                                    a.g) The lesson is ___
+                                </p>
+                                <p>
+                                    a.h) (add background) - no
+                                </p>
+                                <p>
+                                    a.i) (is this correct?) - yes
+                                </p>
+                                <p>
+                                    a.j) The topic is ___
+                                </p>
+                                <p>
+                                    a.k) The lesson is ___
+                                </p>
+                                <p>
+                                    a.l) (add background) - yes
+                                </p>
+                                <p>
+                                    a.m) The background is ___
+                                </p>
+                                <p>
+                                    a.n) (is this correct?) - no
+                                </p>
+                                <p>
+                                    a.o) make corrections at your discretion
+                                </p>
+                                <p>
+                                    b. I want to add a lesson about ___
+                                </p>
+                                <p>
+                                    b.a) Follow the above protocol as before
+                                </p>
                             </div>
                         </div>
 
