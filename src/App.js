@@ -83,6 +83,7 @@ class App extends Component {
                                 </p>
                                 <p>
                                     For the command tests, please use the /restart command after each input. Once these are completed you can move on to the retrieval interactions.<br/>
+                                    For the retrieval interactions please do not restart the bot between retrieving a lesson and asking questions about it, the system relies on the retrieved data to fulfill QA abilities. <br/>
                                     For commands h. and m., please repeat with the blank filled with topics of your choosing.<br/>
                                     Note the topics below and I will collate these.<br/>
                                     Each time a command is used, please note whether the system responds appropriately. This will improve the captured data.<br/>
