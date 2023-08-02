@@ -300,6 +300,10 @@ class App extends Component {
                                 <p>
                                     b.a) Follow the above protocol as before
                                 </p>
+                                <p>
+                                    Once you have added a lesson about a chosen topic, please then follow the retrieval instructions for that topic to see if the lesson has saved properly. <br/>
+                                    I will be adding capability to score the relevance of the saved lesson in the next few days. Please also ask any questions you think are relevant about the lesson you have saved. <br/>
+                                </p>
                             </div>
                         </div>
 
