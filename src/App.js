@@ -97,6 +97,8 @@ class App extends Component {
                                     Example 1: <br/> user: 'Tell me about optics' bot: 'what is the topic of the lesson?' - this would be a false positive <br/>
                                     Example 2: <br/> user: 'I want to enter a lesson' bot: 'That isn't something I know how to do' - this would be a false negative <br/>
                                     Example 3: <br/> user: 'What is the weather in Panama?' bot: 'That isn't something I know how to do' - this would be a true negative and does not need to be marked <br/>
+                                    In the case of asking 'what is [topic]?', the chatbot may give a one word answer that is not strictly correct, as long as this word comes from the retrieved lesson this is actually a True Positive. <br/>
+                                    The reason being that the current question answering system can't tell the difference, it's trying its best. I am working on capablity to tell it the returned answer is wrong and offer it a correction. <br/>
                                 </p>
                                 <p>
                                     The provided questions should all provoke a positive response so any failure to answer, including the failure message should be marked as a false negative.
