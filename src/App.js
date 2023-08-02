@@ -304,7 +304,9 @@ class App extends Component {
                                 </p>
                                 <p>
                                     Once you have added a lesson about a chosen topic, please then follow the retrieval instructions for that topic to see if the lesson has saved properly. <br/>
-                                    I will be adding capability to score the relevance of the saved lesson in the next few days. Please also ask any questions you think are relevant about the lesson you have saved. <br/>
+                                    There is now the ability to score the relevance of the saved lesson. <br/>
+                                    To score a lesson please enter 'rating:' followed by a number from 0 to 10, where zero means not at all relevant and 10 means 100% relevant. <br/>
+                                    Please also ask any questions you think are relevant about the lesson you have saved. <br/>
                                 </p>
                             </div>
                         </div>
