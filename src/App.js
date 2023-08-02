@@ -93,7 +93,10 @@ class App extends Component {
                                 </p>
                                 <p>
                                     Please work through the provided questions and mark the chatbot’s responses as True Positive (TP) if it responds exactly as expected, as False Positive (FP) if it responds as if a different input was detected, and as False Negative (FN) if it fails to answer when it should have been able to.
-                                    You can do this by typing 'TP', 'FP', or 'FN' directly into the chatbot input box. This should not affect the conversation.
+                                    You can do this by typing 'TP', 'FP', or 'FN' directly into the chatbot input box. This should not affect the conversation. <br/>
+                                    Example 1: <br/> user: 'Tell me about optics' bot: 'what is the topic of the lesson?' - this would be a false positive <br/>
+                                    Example 2: <br/> user: 'I want to enter a lesson' bot: 'That isn't something I know how to do' - this would be a false negative <br/>
+                                    Example 3: <br/> user: 'What is the weather in Panama?' bot: 'That isn't something I know how to do' - this would be a true negative and does not need to be marked <br/>
                                 </p>
                                 <p>
                                     The provided questions should all provoke a positive response so any failure to answer, including the failure message should be marked as a false negative.
