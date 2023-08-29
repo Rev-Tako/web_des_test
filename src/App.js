@@ -79,6 +79,9 @@ class App extends Component {
                                    * Does the system detect the user’s meaning and intent reliably?<br/>
                                 </p>
                                 <p>
+                                    Please be aware that SCARLET is not ChatGPT, it is not designed to hold conversations on topics outside of the ESA Lessons Learned format.
+                                </p>
+                                <p>
                                     Query sets are split into command and retrieval interactions, with command interactions being the basic functions of SCARLET, and retrievals being utterances which illicit specific information.
                                 </p>
                                 <p>
