@@ -51,7 +51,7 @@ class App extends Component {
                     </div>
 
                         <div className="App-form">
-                            {/*<span> SCARLET is currently offline for maintenance.</span>*/}
+                            /*<span> SCARLET is currently offline for maintenance.</span>*/
                             {/*<div className="tab">*/}
                             {/*    <button className="tablinks" onClick={this.openCity("London")}>London</button>*/}
                             {/*    <button className="tablinks" onClick={this.openCity("Paris")}>Paris</button>*/}
