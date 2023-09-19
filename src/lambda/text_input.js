@@ -4,8 +4,8 @@ class ActionProvider {
         this.createChatBotMessage = createChatBotMessage;
         this.setState = setStateFunc;
         if (localStorage.getItem('userID') === null){
-            this.user_ID = Math.floor(Math.random() * 10000000);
-            localStorage.setItem('userID', this.user_ID.toString())
+            this.user_ID = Math.floor(Math.random() * 1000000000);
+            localStorage.setItem('userID', this.user_ID.toString() + '-B')
         } else {
             this.user_ID = parseInt(localStorage.getItem('userID'))
         }
