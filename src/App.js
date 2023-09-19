@@ -69,34 +69,21 @@ class App extends Component {
                             {/*</div>*/}
                             <div className="App-scroller">
                                 <h3>SCARLET Testing strategy</h3>
+                                <h4>Part 2</h4>
                                 <p>
                                     What we are testing for:
                                 </p>
                                 <p>
-                                   * Does the system respond appropriately?<br/>
-                                   * Does the system continue to respond appropriately when queries are misspelled?<br/>
-                                   * Does the system respond similarly to rephrased queries?<br/>
-                                   * Does the system detect the user’s meaning and intent reliably?<br/>
+                                    * Does the system respond accurately to user requests? <br/>
+                                    * Is the interface understandable: can users reliably navigate to desired functions? <br/>
+                                    * Does the system perform better for Laypeople or Expert Users? <br/>
+                                    * Is system performance reflected by self-assessment? <br/>
                                 </p>
                                 <p>
-                                    Please be aware that SCARLET is not ChatGPT, it is not designed to hold conversations on topics outside of the ESA Lessons Learned format.
+                                    As Before, please be aware that SCARLET is not ChatGPT, it is not designed to hold conversations on topics outside of the ESA Lessons Learned format.
                                 </p>
                                 <p>
-                                    Query sets are split into command and retrieval interactions, with command interactions being the basic functions of SCARLET, and retrievals being utterances which illicit specific information.
-                                </p>
-                                <p>
-                                    For the command tests, please use the /restart command after each input. Once these are completed you can move on to the retrieval interactions.<br/>
-                                    For the retrieval interactions please do not restart the bot between retrieving a lesson and asking questions about it, the system relies on the retrieved data to fulfill QA abilities. <br/>
-                                    For commands h. and m., please repeat with the blank filled with topics of your choosing.<br/>
-                                    Note the topics below and I will collate these.<br/>
-                                    Each time a command is used, please note whether the system responds appropriately. This will improve the captured data.<br/>
-                                </p>
-                                <p>
-                                    Queries in the Retrieval set have one base query then variants thereof, this is to test robustness.
-                                </p>
-                                <p>
-                                    Please work through the provided questions and mark the chatbot’s responses as True Positive (TP) if it responds exactly as expected, as False Positive (FP) if it responds as if a different input was detected, and as False Negative (FN) if it fails to answer when it should have been able to.
-                                    You can do this by typing 'TP', 'FP', or 'FN' directly into the chatbot input box. This should not affect the conversation. <br/>
+                                    The following tests are not as strictly prescribed as the last campaign. However, after every response from the bot, please type ‘TP’, ‘FP’, or ‘FN’, meaning True Positive, False Positive, or False Negative. This allows us to analyse the chatbot performance, compared to our expectations and also user expectations.<br/>
                                     Example 1: <br/> user: 'Tell me about optics' bot: 'what is the topic of the lesson?' - this would be a false positive <br/>
                                     Example 2: <br/> user: 'I want to enter a lesson' bot: 'That isn't something I know how to do' - this would be a false negative <br/>
                                     Example 3: <br/> user: 'What is the weather in Panama?' bot: 'That isn't something I know how to do' - this would be a true negative and does not need to be marked <br/>
@@ -104,13 +91,8 @@ class App extends Component {
                                     The reason being that the current question answering system can't tell the difference, it's trying its best. I am working on capablity to tell it the returned answer is wrong and offer it a correction. <br/>
                                 </p>
                                 <p>
-                                    The provided questions should all provoke a positive response so any failure to answer, including the failure message should be marked as a false negative.
-                                </p>
-                                <p>
-                                    For question e. please fill the blank with a topic of your choosing, and repeat for up to 5 topics. Note the topics you select in the space below.
-                                </p>
-                                <p>
-                                    It may be hard to tell if the system produces a false positive, if there is doubt, please ask Graye or Dimitar.
+                                    It is important that you do not try to ask questions about a topic without first retrieving the stored lessons on that topic. This is because the Question Answering model relies on the context provided by the active lesson. Without this it cannot perform the QA function.<br/>
+                                    You can retrieve lessons via ‘tell me about___’, ‘I want to learn about___’ or ‘teach me about ____’ prompts.
                                 </p>
                                 <p>
                                     When retrieving information, once a result set has been retrieved, please ask some questions about the data points that you feel are not answered by the data that has been returned. This will help us create a dataset of human-generated questions that we can use to improve our capture system.
@@ -119,197 +101,10 @@ class App extends Component {
                                     If you can write down these questions and whether the system answers them or not, that will help us greatly.
                                 </p>
                                 <p>
-                                    You do not need to attempt the full set in one sitting, it may take some time. Any results you do gather can be sent back to me in a piecemeal fashion so that I can analyse and collate them.
+                                    You should also be able to add new lessons, once you have added a lesson, please retrieve that lesson and ask questions about it. You can rate the chatbot’s responses by typing ‘rating: [0-10]’.
                                 </p>
                                 <p>
-                                    Thank you for taking part.
-                                </p>
-                                <h3>Command Interactions</h3>
-                                <p>
-                                    a. Hi
-                                </p>
-                                <p>
-                                    b. hello
-                                </p>
-                                <p>
-                                    c. hey
-                                </p>
-                                <p>
-                                    d. hi there
-                                </p>
-                                <p>
-                                    e. I want to learn
-                                </p>
-                                <p>
-                                    f. I want to retrieve a lesson
-                                </p>
-                                <p>
-                                    g. I want you to tell me something
-                                </p>
-                                <p>
-                                    h. Tell me about ___
-                                </p>
-                                <p>
-                                    i. Teach me something
-                                </p>
-                                <p>
-                                    j. I want to tell you something
-                                </p>
-                                <p>
-                                    k. I want to capture a lesson
-                                </p>
-                                <p>
-                                    l. I want to give you a lesson
-                                </p>
-                                <p>
-                                    m. I want to tell you about ___
-                                </p>
-                                <p>
-                                    n. I want to teach you something
-                                </p>
-                                <h3>Retrieval Interactions</h3>
-                                <p>
-                                    a. Tell me about Propulsion?
-                                </p>
-                                <p>
-                                    a.a) What is propulsion?
-                                </p>
-                                <p>
-                                    a.b) What can you tell me about
-                                    propulsion?
-                                </p>
-                                <p>
-                                    a.c) Do you have information about
-                                    propulsion?
-                                </p>
-                                <p>
-                                    a.d) Do you have any lessons about
-                                    propulsion?
-                                </p>
-                                <p>
-                                    a.e) Who is propulsion? - (inappropriate
-                                    phrasing)
-                                </p>
-                                <p>
-                                    a.f) what is porpulsion? - (spelling error) a.g) what is proplusion? - (spelling error)
-                                </p>
-                                <p>
-                                    b. Tell me about optics
-                                </p>
-                                <p>
-                                    b.a) What is optics?
-                                </p>
-                                <p>
-                                    b.b) What can you tell me about optics?
-                                </p>
-                                <p>
-                                    b.c) What is optics the study of?
-                                </p>
-                                <p>
-                                    b.d) Do you have any lessons about optics?
-                                </p>
-                                <p>
-                                    b.e) What is otpics?
-                                </p>
-                                <p>
-                                    b.f) Who is optics?
-                                </p>
-                                <p>
-                                    c. Tell me about Buzz Aldrin
-                                </p>
-                                <p>
-                                    c.a) Who is Buzz Aldrin?
-                                </p>
-                                <p>
-                                    c.b) Who was Buzz Aldrin?
-                                </p>
-                                <p>
-                                    c.c) What do you know about Buzz Aldrin?
-                                </p>
-                                <p>
-                                    c.d) What is Buzz Aldrin?
-                                </p>
-                                <p>
-                                    c.e) Who is Buz Aldrin?
-                                </p>
-                                <p>
-                                    c.f) Who is Buzz Alrdin?
-                                </p>
-                                <p>
-                                    d. Tell me about ESA
-                                </p>
-                                <p>
-                                    d.a) What is ESA?
-                                </p>
-                                <p>
-                                    d.b) Who is ESA?
-                                </p>
-                                <p>
-                                    d.c) What do you know about ESA?
-                                </p>
-                                <p>
-                                    e. What lessons do you have on ___
-                                </p>
-                                <h3>Capture Interactions</h3>
-                                <p>
-                                    a. I want to add a lesson
-                                </p>
-                                <p>
-                                    a.a) The topic is ___
-                                </p>
-                                <p>
-                                    a.b) The lesson is ___
-                                </p>
-                                <p>
-                                    a.c) (add background) - yes
-                                </p>
-                                <p>
-                                    a.d) The background is ___
-                                </p>
-                                <p>
-                                    a.e) (is this correct?) - yes
-                                </p>
-                                <p>
-                                    a.f) The topic is ___
-                                </p>
-                                <p>
-                                    a.g) The lesson is ___
-                                </p>
-                                <p>
-                                    a.h) (add background) - no
-                                </p>
-                                <p>
-                                    a.i) (is this correct?) - yes
-                                </p>
-                                <p>
-                                    a.j) The topic is ___
-                                </p>
-                                <p>
-                                    a.k) The lesson is ___
-                                </p>
-                                <p>
-                                    a.l) (add background) - yes
-                                </p>
-                                <p>
-                                    a.m) The background is ___
-                                </p>
-                                <p>
-                                    a.n) (is this correct?) - no
-                                </p>
-                                <p>
-                                    a.o) make corrections at your discretion
-                                </p>
-                                <p>
-                                    b. I want to add a lesson about ___
-                                </p>
-                                <p>
-                                    b.a) Follow the above protocol as before
-                                </p>
-                                <p>
-                                    Once you have added a lesson about a chosen topic, please then follow the retrieval instructions for that topic to see if the lesson has saved properly. <br/>
-                                    There is now the ability to score the relevance of the saved lesson. <br/>
-                                    To score a lesson please enter 'rating:' followed by a number from 0 to 10, where zero means not at all relevant and 10 means 100% relevant. <br/>
-                                    Please also ask any questions you think are relevant about the lesson you have saved. <br/>
+                                    Thank you for your time.
                                 </p>
                             </div>
                         </div>
